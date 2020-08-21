@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  background: #e8ecf1;
+}
+main{
+  max-width: 800px;
+  width: 90%;
+  margin: auto;
+  padding: 40px;
+}
+.formulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.label__formulario {
+  display: block;
+  font-weight: 700;
+  padding: 10px;
+}
+.formulario__grupo__input {
+  position: relative;
+}
+.formulario__input {
+  width: 100%;
+  background: #fff;
+  border: 3px solid transparent;
+  border-radius: 3px;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 40px 0 10px;
+  transition: .3s ease all;
+}
+.formulario__input:focus {
+  border: 3px solid #22a7f0;
+  outline: none;
+  box-shadow: 3px 0px 20px #bfbfbf;
+}
+.formulario__input-error {
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+}
+.formulario__input-error-activo {
+  display: block;
+}
+.formulario__validar-estado {
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+  z-index: 0;
+  font-size: 16px;
+  opacity: 0;
+}
+.grupo__formulario__salario,
+.mensaje,
+.grupo__formulario__btn-submit {
+  grid-column: span 2;
+}
+.mensaje {
+  height: 45px;
+  line-height: 45px;
+  background: #d64541;
+  padding: 0 15px;
+  border-radius: 3px;
+  display: none;
+}
+.mensaje-activo {
+  display: block;
+}
+.mensaje p {
+  margin: 0;
+}
+.grupo__formulario__btn-submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formulario__btn {
+  height: 45px;
+  line-height: 45px;
+  width: 30%;
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: .1 ease all;
+}
+.formulario__btn:hover {
+  box-shadow: 3px 0px 30px #bfbfbf;
+}
+.grupo__formulario-correcto .formulario__validar-estado {
+  color: #00e640;
+  opacity: 1;
+}
+.grupo__formulario-incorrecto .label__formulario {
+  color: #d91e18;
+}
+.grupo__formulario-incorrecto .formulario__validar-estado {
+  color: #d91e18;
+  opacity: 1;
+}
+.grupo__formulario-incorrecto .formulario__input {
+  border: 3px solid #d91e18;
+}
+
+@media screen and (max-width: 800px) {
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+
+  .grupo__formulario__salario,
+  .mensaje,
+  .grupo__formulario__btn-submit {
+    grid-column: 1;
+  }
+
+  .formulario__btn {
+    width: 100%;
+  }
+}

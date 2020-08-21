@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Empleado</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/View/CSS/Estilos.css">
+  </head>
+  <body>
+    <main>
+      <form action="" class="formulario" id="formulario">
+
+        <!--Grupo Nombre-->
+        <div class="grupo__formulario" id="grupo__nombre">
+          <label for="nombre" class="label__formulario">Nombres</label>
+          <div class="formulario__grupo__input">
+            <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Ej. Oscar Alberto">
+            <i class="formulario__validar-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El nombre debe contener al menos 3 dígitos. Solo se permite Letras y Espacios.</p>
+        </div>
+
+        <!--Grupo Apellido-->
+        <div class="grupo__formulario" id="grupo__apellido">
+          <label for="apellido" class="label__formulario">Apellidos</label>
+          <div class="formulario__grupo__input">
+            <input type="text" class="formulario__input" name="apellido" id="apellido" placeholder="Ej. Castaneda Villalta">
+            <i class="formulario__validar-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El apellido debe contener al menos 3 dígitos. Solo se permite Letras y Espacios.</p>
+        </div>
+
+        <!--Grupo Telefono-->
+        <div class="grupo__formulario" id="grupo__telefono">
+          <label for="telefono" class="label__formulario">Telefono</label>
+          <div class="formulario__grupo__input">
+            <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="Ej. 7423-9876">
+            <i class="formulario__validar-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El Teléfono debe contener 8 dígitos</p>
+        </div>
+
+        <!--Grupo Correo-->
+        <div class="grupo__formulario" id="grupo__correo">
+          <label for="correo" class="label__formulario">Correo</label>
+          <div class="formulario__grupo__input">
+            <input type="text" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+            <i class="formulario__validar-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El correo solo puede contener letras, números, puntos, guiones, y guión bajo</p>
+        </div>
+
+        <!--Grupo Nombre Empresa-->
+        <div class="grupo__formulario" id="grupo__empresa">
+          <label for="empresa" class="label__formulario">Nombre de la Empresa</label>
+          <div class="formulario__grupo__input">
+            <input type="text" class="formulario__input" name="empresa" id="empresa" placeholder="Nombre de la Empresa">
+            <i class="formulario__validar-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El nombre de la Empresa solo debe contener Letras y Espacios</p>
+        </div>
+
+        <!--Grupo DUI-->
+        <div class="grupo__formulario" id="grupo__dui">
+          <label for="dui" class="label__formulario">DUI</label>
+          <div class="formulario__grupo__input">
+            <input type="text" class="formulario__input" name="dui" id="dui" placeholder="08653186-9">
+            <i class="formulario__validar-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El DUI debe contener 9 dígitos. (Solo números)</p>
+        </div>
+
+        <!--Grupo NIT-->
+        <div class="grupo__formulario" id="grupo__nit">
+          <label for="nit" class="label__formulario">NIT</label>
+          <div class="formulario__grupo__input">
+            <input type="text" class="formulario__input" name="nit" id="nit" placeholder="98156307531753">
+            <i class="formulario__validar-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">EL NIT debe contener 14 dígitos. (Sólo números)</p>
+        </div>
+
+        <!--Grupo Puesto -->
+        <div class="grupo__formulario" id="grupo__puesto">
+          <label for="puesto" class="label__formulario">Puesto del Empleado</label>
+          <div class="formulario__grupo__input">
+            <input type="text" class="formulario__input" name="puesto" id="puesto" placeholder="Puesto del Empleado">
+            <i class="formulario__validar-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El puesto del Empleado solo debe contener Letras y Espacios</p>
+        </div>
+
+        <!--Grupo Salario-->
+        <div class="grupo__formulario__salario" id="grupo__salario">
+          <label for="salario" class="label__formulario">Salario</label>
+          <div class="formulario__grupo__input">
+            <input type="text" class="formulario__input" name="salario" id="salario" placeholder="Ej. 1500.00">
+            <i class="formulario__validar-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El salario solo debe contener números</p>
+        </div>
+
+        <!--Mensaje Advertencia-->
+        <div class="mensaje" id="mensaje">  
+          <p>
+            <i class="fas fa-exclamation-triangle"></i><b> Error:</b>Todos los campos son requeridos
+          </p>
+        </div>
+
+        <div class="grupo__formulario__btn-submit">
+          <button type="submit" class="formulario__btn">Enviar</button>
+        </div>
+      </form>
+
+    </main>
+    <script src="/Controller/JS/Formulario.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
+  </body>
+</html>

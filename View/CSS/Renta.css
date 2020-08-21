@@ -1,0 +1,74 @@
+.container{
+    padding-left: 35%;
+}
+.renta_mensual{
+    margin-left: 12%;
+}
+
+.remuneraciones{
+    margin-left: 8%;
+}
+.renta_mensual, .remuneraciones{
+    border-collapse: collapse;
+    border: 1px solid black;
+    background-color: lightgray;
+    width: 20%;
+}
+caption{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+}
+
+.renta_mensual, .remuneraciones{
+    margin-bottom: 2.5rem;
+}
+
+.remuneraciones th,
+.remuneraciones td,
+.calculos th,
+.calculos td{
+    border: 1px solid black;
+}
+.remuneraciones tr:first-child{
+    background-color:  rgb(0, 140, 255);
+}
+
+
+.renta_mensual  tr:last-child,
+.remuneraciones tr:last-child{
+    background-color: lightskyblue;
+}
+
+
+.renta_mensual  td:nth-child(even),
+.renta_mensual  th:nth-child(2),
+.remuneraciones td:nth-child(even){
+    text-align: end;
+}
+
+.calculos{
+    border-collapse: collapse;
+}
+
+.calculos th,
+.calculos td{
+    width: 150px;
+    height: 40px;
+}
+
+.calculos td:nth-child(odd){
+    width: 300px;
+    text-align: center;
+}
+
+.calculos td:nth-child(even){
+    width: 100px;
+}
+
+.calculos tr:hover{
+    background-color: rgb(241, 243, 171);
+}
+
+.calculos tr:first-child{
+    background-color:lightseagreen;
+}
