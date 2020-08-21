@@ -88,5 +88,8 @@ formulario.addEventListener('submit', (e) => {
         });
   }else {
     document.getElementById('mensaje').classList.add('mensaje-activo');
+    setTimeout(() => {
+      document.getElementById('mensaje').classList.remove('mensaje-activo');
+    }, 5000);
   }
 })
