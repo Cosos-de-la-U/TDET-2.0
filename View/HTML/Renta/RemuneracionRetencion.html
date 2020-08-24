@@ -4,25 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/View/CSS/Renta.css">
+    <link rel="stylesheet" href="/View/CSS/RemuneracionRetencion.css">
     <link rel="stylesheet" href="/View/CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="/View/CSS/fontawesome.min.css">
 </head>
 <body>
+    <form action="" name="form">
+        <label for="number">sueldo</label>
+        <input type="number" name="" id="number">
+        <label for="years">años</label>
+        <select name="years" id="years">
+            <option class="option_value" value="option_value">1 año a 3 años</option>
+            <option class="option_value" value="option_value">3 años a 10 años</option>
+            <option class="option_value" value="option_value">10 años a mas </option>
+        </select>   
+    </form>
+    <input type="submit" value="calcular" onclick="renta(); Remuneracion(); calculos();">
     <div class="container">
         <table class="renta_mensual">
             <caption>Renta Mensual</caption>
             <tr>
                 <th style="text-align: start;">Salario Mensual</th>
-                <th>$ 0</th>
+                <th id="salario">$ 0</th>
             </tr>
             <tr>
                 <td class="Deduccion">Deduccion</td>
-                <td></td>
+                <td id="deduccion"></td>
             </tr>
             <tr>
                 <td>AFP: 7.25%</td>
                 <td id="AFPCalculado">$ 0</td>
+            </tr>
+            <tr>
+                <td>Deduccion ISSS: 3%</td>
+                <td id="ISSSCalculado">$ 0</td>
             </tr>
             <tr>
                 <td class="Total">Total</td>
@@ -41,7 +55,7 @@
             <caption>Remuneraciones</caption>
             <tr>
                 <th>Meses</th>
-                <th>REMUNERACIONES GRAVADAS DE ENERO A JUNIO</th>
+                <th>REMUNERACIONES GRAVADAS DE ENERO A DICIEMBRE</th>
             </tr>
             <tr>
                 <td>ENERO</td>
@@ -93,7 +107,7 @@
             </tr>
             <tr>
                 <td>Total</td>
-                <td>$ 0</td>
+                <td id=total>$ 0</td>
             </tr>
         </table>
 
@@ -105,41 +119,34 @@
             </tr>
             <tr>
                 <td>Salario Base</td>
-                <td>$ 0</td>
-            </tr>
-            <tr>
-                <td>Renta Neta</td>
-                <td>$ 0</td>
-            </tr>
-            <tr>
-                <td>AFP</td>
-                <td>$ 0</td>
-            </tr>
-            <tr>
-                <td>ISS</td>
-                <td>$ 0</td>
+                <td id="salarioBase">$ 0</td>
             </tr>
             <tr>
                 <td>Renta Imponible</td>
-                <td>$ 0</td>
+                <td id="RentaImponible">$ 0</td>
+            </tr>
+            <tr>
+                <td>AFP</td>
+                <td id="AFPTotal">$ 0</td>
+            </tr>
+            <tr>
+                <td>ISS</td>
+                <td id= "ISSSTotal">$ 0</td>
             </tr>
             <tr>
                 <td>Impuesto sobre la Renta</td>
-                <td>$ 0</td>
+                <td id="Impuesto">$ 0</td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Descuento total</td>
-                <td>$ 0</td>
-            </tr>
-            <tr>
-                <td>Pago a cuenta</td>
-                <td>$ 0</td>
-            </tr>
+                <td id="descuento">$ 0</td>
+            </tr> -->
             <tr>
                 <td>Salario liquido</td>
-                <td>$ 0</td>
+                <td id="salarioLiquido">$ 0</td>
             </tr>
         </table>
     </div>
+    <script src="/Controller/JS/RemuneracionRetencion.js"></script>
 </body>
 </html>

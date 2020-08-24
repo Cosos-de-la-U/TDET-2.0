@@ -1,0 +1,47 @@
+.tdet{
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(45deg,#bdc3c7,#2c3e50);
+  font-family: 'Roboto', sans-serif;
+  font-size: 45px;
+  color: linear-gradient(to right, #A1FFCE, #FAFFD1);
+}
+.bloque {
+  width: 1200px;
+  height: 420px;
+  background: white;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -30%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 20px 20px 20px #22313f;
+
+}
+.bloque .logo {
+  height: 750px;
+  width: 600px;
+  position: absolute;
+  top: -460px;
+  left: calc(50% - 25%);
+  
+}
+.btn__tdet {
+  width: 30%;
+  padding: 20px;
+  border-radius: 15px;
+  border: none;
+  font-size: 20px;
+  background: #2e3131;
+  color: white;
+  font-weight: bold;
+  transition: .1 ease all;
+  cursor: pointer;
+}
+.btn__tdet button: hover {
+  box-shadow: 200px #67809f;
+}
