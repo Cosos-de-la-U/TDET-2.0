@@ -5,7 +5,7 @@ var isssCalc;
 function renta() {
     var salarioPersona = Number(document.getElementById("salario").value);
     salBase = salarioPersona;
-    var salario = document.getElementById("salario");
+    var salario = document.getElementById("salarioMensual");
     var AFP = document.getElementById("AFPCalculado");
     var ISSS = document.getElementById("ISSSCalculado");
     var total = document.getElementById("TotalCalculado");
@@ -90,8 +90,11 @@ function calculos() {
     }else if(rentaImponible > 2038.11){
         ISR = ((rentaImponible - 2038.11)*0.30) + 288.57;
     }
+    ISR = ISR.toFixed(2);
+    var SalLiquido = rentaImponible - ISR;
+    SalLiquido = SalLiquido.toFixed(2);
     var Impuesto = document.getElementById("Impuesto").innerHTML =`$ ${ISR}`;
     // var descuento = document.getElementById("descuento").innerHTML =`$ ${descuento}`;
     // var pago = document.getElementById("pago").innerHTML =`$ ${pago}`;
-    var salarioLiquido = document.getElementById("salarioLiquido").innerHTML =`$ ${rentaImponible - ISR}`;
+    var salarioLiquido = document.getElementById("salarioLiquido").innerHTML =`$ ${SalLiquido}`;
 }
