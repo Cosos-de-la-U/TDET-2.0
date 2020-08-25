@@ -135,12 +135,14 @@ function calculos() {
         calculoDiciembre = ((salarioTotal - 895.25)*0.20) + 60.00;
     }else if(salarioTotal > 2038.11){
         calculoDiciembre = ((salarioTotal - 2038.11)*0.30) + 288.57;
+    }else{
+        calculoDiciembre = 0.0;
     }
     ISR = parseFloat(ISR).toFixed(2);
-    var total = ((parseFloat(ISR)*11) + parseFloat(calculoDiciembre));
-    total = total.toFixed(2);   
+    var totalRT = ((parseFloat(ISR)*11) + parseFloat(calculoDiciembre));
+    totalRT = totalRT.toFixed(2);   
     $('#diciembreRT').html(`$ ${calculoDiciembre}`);
-    var total = document.getElementById("añoRT").innerHTML = `$ ${total}`;
+    $('#añoRT').html(`$ ${totalRT}`);
     console.log(aguinaldo);
 }
 
