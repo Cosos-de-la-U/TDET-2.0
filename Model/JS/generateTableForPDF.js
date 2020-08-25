@@ -5,7 +5,7 @@ function setTablePDF() {
     $('#showFullName').html(nombre + " "+ apellido);
 
     var puesto = $('#puesto').val();
-    $('#showFullName').html(puesto);
+    $('#showCargo').html(puesto);
     
     var salario = $('#salario').val();
     $('.showSalario').html(salario);
