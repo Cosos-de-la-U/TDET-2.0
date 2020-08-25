@@ -111,17 +111,19 @@ function calculos() {
     $(".ntl").html(NumeroALetras(parseFloat(salBase)-fullCrackNoFake.toFixed(2)));
     // var descuento = document.getElementById("descuento").innerHTML =`$ ${descuento}`;
     // var pago = document.getElementById("pago").innerHTML =`$ ${pago}`;
-    var salarioLiquido = document.getElementById("salarioLiquido").innerHTML =`$ ${SalLiquido}`; var eneroRT = document.getElementById("eneroRT").innerHTML = `$ ${ISR}`;
-    var febreroRT = document.getElementById("febreroRT").innerHTML = `$ ${ISR}`;
-    var marzoRT = document.getElementById("marzoRT").innerHTML = `$ ${ISR}`;
-    var abrilRT = document.getElementById("abrilRT").innerHTML = `$ ${ISR}`;
-    var abrilRT = document.getElementById("mayoRT").innerHTML = `$ ${ISR}`;
-    var junioRT = document.getElementById("junioRT").innerHTML = `$ ${ISR}`;
-    var julioRT = document.getElementById("julioRT").innerHTML = `$ ${ISR}`;
-    var agostoRT = document.getElementById("agostoRT").innerHTML = `$ ${ISR}`;
-    var septiembreRT = document.getElementById("setpiembreRT").innerHTML = `$ ${ISR}`;
-    var octubreRT = document.getElementById("octubreRT").innerHTML = `$ ${ISR}`;
-    var noviembreRT = document.getElementById("noviembreRT").innerHTML = `$ ${ISR}`;
+    $('#salarioLiquido').html(`$ ${SalLiquido}`);
+    $('#eneroRT').html(`$ ${ISR}`);
+    $('#febreroRT').html(`$ ${ISR}`);
+    $('#marzoRT').html(`$ ${ISR}`);
+    $('#abrilRT').html(`$ ${ISR}`);
+    $('#mayoRT').html(`$ ${ISR}`);
+    $('#junioRT').html(`$ ${ISR}`);
+    $('#julioRT').html(`$ ${ISR}`);
+    $('#agostoRT').html(`$ ${ISR}`);
+    $('#setpiembreRT').html(`$ ${ISR}`);
+    $('#octubreRT').html(`$ ${ISR}`);
+    $('#noviembreRT').html(`$ ${ISR}`);
+    $('#diciembreRT').html(`$ ${ISR}`);
     //wea
 
     var salarioTotal = (parseFloat(salarioLiquido) + parseFloat(aguinaldo));
@@ -134,7 +136,7 @@ function calculos() {
     }else if(salarioTotal > 2038.11){
         calculoDiciembre = ((salarioTotal - 2038.11)*0.30) + 288.57;
     }
-    ISR = ISR.toFixed(2);
+    ISR = parseFloat(ISR).toFixed(2);
     var total = ((parseFloat(ISR)*11) + parseFloat(calculoDiciembre));
     total = total.toFixed(2);   
     var diciembre = document.getElementById("diciembreRT").innerHTML = `$ ${calculoDiciembre}`;
