@@ -2,8 +2,9 @@
 function setTablePDF() {
     var nombre = $('#nombre').val();
     var apellido = $('#apellido').val();
-    $('#showFullName').html(nombre + " "+ apellido);
-
+    $('.showFullName').html(nombre + " "+ apellido);
+    var niti = $('#nit').val();
+    $(".showNit").html(niti);
     var puesto = $('#puesto').val();
     $('#showCargo').html(puesto);
     
