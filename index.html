@@ -150,7 +150,7 @@
       <br>
       <div class="grupo__formulario__btn-submit">
         <button type="submit" class="formulario__btn" value="calcular"
-          onclick="renta(); Remuneracion(); calculos(); setTablePDF()">Enviar</button>
+          onclick="renta(); Remuneracion(); Retencion(); calculos(); setTablePDF()">Enviar</button>
       </div>
     </form>
 
@@ -222,7 +222,7 @@
           <td id="AFPTotal">$ 0</td>
         </tr>
         <tr>
-          <td>ISS</td>
+          <td>ISSS</td>
           <td id="ISSSTotal">$ 0</td>
         </tr>
         <tr>
@@ -292,6 +292,62 @@
         <tr class="badge-dark" style="color: white; font-weight: bold;">
           <td colspan="2">Total de todos los meses</td>
           <td colspan="2" id=total>$ 0</td>
+        </tr>
+       </tbody>
+      </table>
+      <!-- Tabla Renta Mensual -->
+  </div>
+
+    <div class="row">
+      <table  class="table retenciones col-sm-12 my-sm-5">
+        <thead class="thead-dark">
+          <tr>
+            <th>Meses</th>
+            <th>Retenciones</th>
+            <th>Meses</th>
+            <th>Retenciones</th>
+          </tr>
+        </thead>
+       <tbody>
+        <tr>
+          <td>Enero</td>
+          <td id="eneroRT">$ 0</td>
+          <td>Julio</td>
+          <td id="julioRT">$ 0</td>
+        </tr>
+        <tr>
+          <td>Febrero</td>
+          <td id="febreroRT">$ 0</td>
+          <td>Agosto</td>
+          <td id="agostoRT">$ 0</td>
+        </tr>
+        <tr>
+          <td>Marzo</td>
+          <td id="marzoRT">$ 0</td>
+          <td>Septiembre</td>
+          <td id="setpiembreRT">$ 0</td>
+        </tr>
+        <tr>
+          <td>Abril</td>
+          <td id="abrilRT">$ 0</td>
+          <td>Octubre</td>
+          <td id="octubreRT">$ 0</td>
+        </tr>
+        <tr>
+          <td>Mayo</td>
+          <td id="mayoRT">$ 0</td>
+          <td>Noviembre</td>
+          <td id="noviembreRT">$ 0</td>
+        </tr>
+        <tr>
+          <td>Junio</td>
+          <td id="junioRT">$ 0</td>
+          <td>Diciembre</td>
+          <td id="diciembreRT">$ 0</td>
+        </tr>
+        <tr class="badge-dark" style="color: white; font-weight: bold;">
+          <td colspan="2">Total de todos los meses</td>
+          <td colspan="2" id=añoRT>$ 0</td>
         </tr>
        </tbody>
       </table>
@@ -477,6 +533,7 @@
 <!--######~~~~~~~~~~~~~~~~~~~~~~~~########################################~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
   <script src="Model/JS/RemuneracionRetencion.js"></script>
+  <script src="Model/JS/Retenciones.js"></script>
 
   
   <script src="Model/JS/generateTableForPDF.js"></script>

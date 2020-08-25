@@ -2,6 +2,8 @@ var rentaImponible;
 var salBase;
 var afpCalc;
 var isssCalc;
+var aguinaldo;
+var calculoDiciembre;
 function renta() {
     var salarioPersona = Number(document.getElementById("salario").value);
     salBase = salarioPersona;
@@ -35,7 +37,6 @@ function renta() {
 var ISR;
 
 function Remuneracion() {
-    var aguinaldo;
     var enero = document.getElementById("enero").innerHTML = `$ ${rentaImponible}`;
     var febrero = document.getElementById("febrero").innerHTML = `$ ${rentaImponible}`;
     var marzo = document.getElementById("marzo").innerHTML = `$ ${rentaImponible}`;
@@ -73,8 +74,13 @@ function Remuneracion() {
     // total = total.toFixed(2);
     var diciembre = document.getElementById("diciembre").innerHTML = `$ ${newR}`;
     var total = document.getElementById("total").innerHTML = `$ ${total}`;
+
+    
 }
 
+function Retencion() {
+   
+}
 
 function calculos() {
     var salario = document.getElementById("salarioBase").innerHTML =`$ ${salBase}`;
@@ -105,5 +111,34 @@ function calculos() {
     $(".ntl").html(NumeroALetras(parseFloat(salBase)-fullCrackNoFake.toFixed(2)));
     // var descuento = document.getElementById("descuento").innerHTML =`$ ${descuento}`;
     // var pago = document.getElementById("pago").innerHTML =`$ ${pago}`;
-    var salarioLiquido = document.getElementById("salarioLiquido").innerHTML =`$ ${SalLiquido}`;
+    var salarioLiquido = document.getElementById("salarioLiquido").innerHTML =`$ ${SalLiquido}`; var eneroRT = document.getElementById("eneroRT").innerHTML = `$ ${ISR}`;
+    var febreroRT = document.getElementById("febreroRT").innerHTML = `$ ${ISR}`;
+    var marzoRT = document.getElementById("marzoRT").innerHTML = `$ ${ISR}`;
+    var abrilRT = document.getElementById("abrilRT").innerHTML = `$ ${ISR}`;
+    var abrilRT = document.getElementById("mayoRT").innerHTML = `$ ${ISR}`;
+    var junioRT = document.getElementById("junioRT").innerHTML = `$ ${ISR}`;
+    var julioRT = document.getElementById("julioRT").innerHTML = `$ ${ISR}`;
+    var agostoRT = document.getElementById("agostoRT").innerHTML = `$ ${ISR}`;
+    var septiembreRT = document.getElementById("setpiembreRT").innerHTML = `$ ${ISR}`;
+    var octubreRT = document.getElementById("octubreRT").innerHTML = `$ ${ISR}`;
+    var noviembreRT = document.getElementById("noviembreRT").innerHTML = `$ ${ISR}`;
+    //wea
+
+    var salarioTotal = (parseFloat(salarioLiquido) + parseFloat(aguinaldo));
+    if(salarioTotal >= 0.01 && salarioTotal < 472.01){
+        calculoDiciembre = 0.00;
+    }else if(salarioTotal >= 472.01 && salarioTotal < 895.25){
+        calculoDiciembre = ((salarioTotal - 472.01)*0.10) + 17.67;
+    }else if(salarioTotal >= 895.25 && salarioTotal < 2038.11){
+        calculoDiciembre = ((salarioTotal - 895.25)*0.20) + 60.00;
+    }else if(salarioTotal > 2038.11){
+        calculoDiciembre = ((salarioTotal - 2038.11)*0.30) + 288.57;
+    }
+    ISR = ISR.toFixed(2);
+    var total = ((parseFloat(ISR)*11) + parseFloat(calculoDiciembre));
+    total = total.toFixed(2);   
+    var diciembre = document.getElementById("diciembreRT").innerHTML = `$ ${calculoDiciembre}`;
+    var total = document.getElementById("añoRT").innerHTML = `$ ${total}`;
+    console.log(aguinaldo);
 }
+
