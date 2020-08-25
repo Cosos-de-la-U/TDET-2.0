@@ -29,7 +29,7 @@ function renta() {
     AFP.innerHTML = `$ ${afp}`;    
     ISSS.innerHTML = `$ ${isss}`;    
     total.innerHTML = `$ ${totalCalculado}`;       
-    rentaCalculado.innerHTML = `$ ${rentaC}`;    
+    rentaCalculado.innerHTML = `$ ${rentaC}`;  
 }
 
 var ISR;
@@ -94,6 +94,13 @@ function calculos() {
     var SalLiquido = rentaImponible - ISR;
     SalLiquido = SalLiquido.toFixed(2);
     var Impuesto = document.getElementById("Impuesto").innerHTML =`$ ${ISR}`;
+     
+    $(".Impuesto").html(`$ ${ISR}`);  
+    $(".ISSSCalculado").html(`${ISSSTotal}`);   
+    $(".AFPCalculado").html(`${AFPTotal}`);  
+    var fullCrackNoFake = parseFloat(afpCalc) + parseFloat(isssCalc) + parseFloat(ISR);
+    $(".totalFullNoFake").html(fullCrackNoFake.toFixed(2));
+    $(".yaMerito").html(parseFloat(salBase)-fullCrackNoFake.toFixed(2));
     // var descuento = document.getElementById("descuento").innerHTML =`$ ${descuento}`;
     // var pago = document.getElementById("pago").innerHTML =`$ ${pago}`;
     var salarioLiquido = document.getElementById("salarioLiquido").innerHTML =`$ ${SalLiquido}`;
