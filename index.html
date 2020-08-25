@@ -418,9 +418,8 @@
 
 
 <script>
-  // Default export is a4 paper, portrait, using millimeters for units
-  var doc = new jsPDF() 
   function printVaucher() {
+    var doc = new jsPDF() 
     doc.autoTable({html:"#boletapago"}); 
     doc.autoTable({html:"#boletaResumen"});
     doc.save();
