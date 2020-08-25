@@ -139,7 +139,7 @@ function calculos() {
     ISR = parseFloat(ISR).toFixed(2);
     var total = ((parseFloat(ISR)*11) + parseFloat(calculoDiciembre));
     total = total.toFixed(2);   
-    var diciembre = document.getElementById("diciembreRT").innerHTML = `$ ${calculoDiciembre}`;
+    $('#diciembreRT').html(`$ ${calculoDiciembre}`);
     var total = document.getElementById("añoRT").innerHTML = `$ ${total}`;
     console.log(aguinaldo);
 }
