@@ -101,6 +101,8 @@ function calculos() {
     var fullCrackNoFake = parseFloat(afpCalc) + parseFloat(isssCalc) + parseFloat(ISR);
     $(".totalFullNoFake").html(fullCrackNoFake.toFixed(2));
     $(".yaMerito").html(parseFloat(salBase)-fullCrackNoFake.toFixed(2));
+    
+    $(".ntl").html(NumeroALetras(parseFloat(salBase)-fullCrackNoFake.toFixed(2)));
     // var descuento = document.getElementById("descuento").innerHTML =`$ ${descuento}`;
     // var pago = document.getElementById("pago").innerHTML =`$ ${pago}`;
     var salarioLiquido = document.getElementById("salarioLiquido").innerHTML =`$ ${SalLiquido}`;
