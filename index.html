@@ -6,11 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Empleado</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="View//CSS/Estilos.css">
-  <link rel="stylesheet" href="View/CSS/bootstrap.min.css">
+  <link rel="stylesheet" href="/View//CSS/Estilos.css">
+  <link rel="stylesheet" href="/View/CSS/bootstrap.min.css">
   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-</head>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="https://unpkg.com/jspdf-autotable@3.5.9/dist/jspdf.plugin.autotable.js"></script>
 
+
+  <!--BOOTSTRAP-->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
 <body>
   <main>
     <form action="" class="formulario" id="formulario" onsubmit="return false">
@@ -133,7 +142,7 @@
       <br>
       <div class="grupo__formulario__btn-submit">
         <button type="submit" class="formulario__btn" value="calcular"
-          onclick="renta(); Remuneracion(); calculos();">Enviar</button>
+          onclick="renta(); Remuneracion(); calculos(); setTablePDF()">Enviar</button>
       </div>
     </form>
 
@@ -145,7 +154,7 @@
   padding: 30px;">
     <div class="row">
 
-      <table class="table renta_mensual col-md-5 mx-md-5 col-sm-12 my-sm-5">
+      <table  class="table renta_mensual col-md-5 mx-md-5 col-sm-12 my-sm-5">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Tipo</th>
@@ -224,9 +233,9 @@
 
     </div>
 
-    <!-- Tabla Remuneracion Mensual -->
+    <!-- Tabla Renta Mensual -->
     <div class="row">
-      <table class="table remuneraciones col-sm-12 my-sm-5">
+      <table  class="table remuneraciones col-sm-12 my-sm-5">
         <thead class="thead-dark">
           <tr>
             <th>Meses</th>
@@ -280,68 +289,140 @@
       </table>
     </div>
 
-      <!-- Tabla Rentecion Mensual -->
-      <div class="row">
-        <table class="table remuneraciones col-sm-12 my-sm-5">
-          <thead class="thead-dark">
-            <tr>
-              <th>Meses</th>
-              <th>Retenciones</th>
-              <th>Meses</th>
-              <th>Remuneraciones</th>
-            </tr>
-          </thead>
-         <tbody>
-          <tr>
-            <td>Enero</td>
-            <td id="enero">$ 0</td>
-            <td>Julio</td>
-            <td id="julio">$ 0</td>
-          </tr>
-          <tr>
-            <td>Febrero</td>
-            <td id="febrero">$ 0</td>
-            <td>Agosto</td>
-            <td id="agosto">$ 0</td>
-          </tr>
-          <tr>
-            <td>Marzo</td>
-            <td id="marzo">$ 0</td>
-            <td>Septiembre</td>
-            <td id="setpiembre">$ 0</td>
-          </tr>
-          <tr>
-            <td>Abril</td>
-            <td id="abril">$ 0</td>
-            <td>Octubre</td>
-            <td id="octubre">$ 0</td>
-          </tr>
-          <tr>
-            <td>Mayo</td>
-            <td id="mayo">$ 0</td>
-            <td>Noviembre</td>
-            <td id="noviembre">$ 0</td>
-          </tr>
-          <tr>
-            <td>Junio</td>
-            <td id="junio">$ 0</td>
-            <td>Diciembre</td>
-            <td id="diciembre">$ 0</td>
-          </tr>
-          <tr class="badge-dark" style="color: white; font-weight: bold;">
-            <td colspan="2">Total de todos los meses</td>
-            <td colspan="2" id=total>$ 0</td>
-          </tr>
-         </tbody>
-        </table>
-      </div>
 
   </div>
   </div>
-  <script src="Model/JS/RemuneracionRetencion.js"></script>
-  <!-- <script src="Controller/JS/Formulario.js"></script> -->
+<!--DOWNLOAD THINGS ##############################################################-->
+
+
+<!-- Button trigger modal -->
+
+
+<div class="col text-center mb-5">
+  <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModalCenter">
+    Mostrar boleta de pago
+  </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade"  id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="width: 900px !important;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Boleta de pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+      <table border="0" id="boletapago" >
+        <tr>
+          <th colspan="2" align="center">BOLETA DE PAGO</th>
+        </tr>
+        <tr>
+          <td><strong>Empleador:</strong></td>
+          <td></td>
+          <tr>
+            <td><strong>Empleado:</strong></td>
+            <td><span id="showFullName"></span></td>
+          </tr>
+        </tr>
+        <tr>
+          <tr>
+            <td><strong>UNIDAD:</strong></td>
+            <td>LABORAL</td>
+          </tr>
+          <tr>
+            <td><strong>MODO DE PAGO:</strong></td>
+            <td>Depositò de banco</td>
+          </tr>
+          <tr>
+            <td><strong>CARGO NOMINAL</strong></td>
+            <td><span id="showCargo"></span></td>
+            <td align="right"><strong>SALARIO</strong></td>
+            <td align="right"><span class="showSalario"></span></td>
+          </tr>
+        </tr>
+      </table>
+      <table id="boletaResumen" class="table remuneraciones col-sm-12 my-sm-5">
+        <thead class="thead-dark">
+          <tr>
+            <th>CONCEPTOS</th>
+            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </th>
+            <th>HABERES</th>
+            <th>DESCUENTOS</th>
+          </tr>
+        </thead>
+       <tbody>
+        <tr>
+          <td>Sueldo Basico</td>
+          <td></td>
+          <td>$<span class="showSalario"></span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>ISSS</td>
+          <td></td>
+          <td></td>
+          <td><span class="ISSSCalculado"></span></td>
+        </tr>
+        <tr>
+          <td>AFP</td>
+          <td></td>
+          <td></td>
+          <td><span class="AFPCalculado"></span></td>
+        </tr>
+        <tr>
+          <td>Impuesto sobre la Renta</td>
+          <td></td>
+          <td></td>
+          <td><span class="Impuesto"></span></td>
+        </tr>
+        <tr>
+          <td colspan="2">Total:</td>
+          <td>$<span class="showSalario"></span></td>
+          <td>$<span class="totalFullNoFake"></span></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+          <td>NETO A PAGAR</td>
+          <td>$<span class="yaMerito"></span></td>
+        </tr>
+       </tbody>
+      </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="printVaucher()">Imprimir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <script src="/Model/JS/RemuneracionRetencion.js"></script>
+
+  
+  <script src="/Model/JS/generateTableForPDF.js"></script>
+  <!-- <script src="/Controller/JS/Formulario.js"></script> -->
   <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+
+
+  
+
 
 </body>
 
 </html>
+
+
+<script>
+  // Default export is a4 paper, portrait, using millimeters for units
+  var doc = new jsPDF() 
+  function printVaucher() {
+    doc.autoTable({html:"#boletapago"}); 
+    doc.autoTable({html:"#boletaResumen"});
+    doc.save();
+  }
+  </script>
