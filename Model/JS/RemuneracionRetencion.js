@@ -52,27 +52,36 @@ function Remuneracion() {
     // var options = document.getElementsByClassName("option_value");
     var opcion = years.options[years.selectedIndex].innerText;
     // alert(opcion);
-    var vacaciones = (rentaImponible)/2;
-    vacaciones = rentaImponible + vacaciones;
-    var afpC = vacaciones*0.0725;
-    var ISSSC = (vacaciones >=1000) ? 30 : parseFloat(rentaImponible) * 0.03; ;
-    var newR = vacaciones-(parseFloat(afpC)+ISSSC);
+
+    //Salario empleado
+
+    var salarioBaseline = document.getElementById("salario").value;
+    var vacaciones = (((salarioBaseline/30) * 15) * 0.3);
+    console.log("vacaciones : " + vacaciones );
+    var salarioConVacacion  = salarioBaseline + vacaciones;
+    //vacaciones = rentaImponible + vacaciones;
+    var afpC = salarioConVacacion*0.0725;
+    console.log("afk S : " + vacaciones );
+    var ISSSC = (salarioConVacacion >=1000) ? 30 : parseFloat(salarioConVacacion) * 0.03; ;
+    var newR = salarioConVacacion-(parseFloat(afpC)+ISSSC);
     console.log(newR);
     newR = newR.toFixed(2);
-    aguinaldo = (opcion == "1 año a 3 años") ? (newR/30)*15 : (opcion == "3 años a 10 años") ? (newR/30)*19 : (newR/30)*21;
+    
+    var aguinaldoOpcion = (opcion == "1 año a 3 años") ? (salarioBaseline/30)*15 : 
+    (opcion == "3 años a 10 años") ? (salarioBaseline/30)*19 : (salarioBaseline/30)*21;
+
     var dias;
-    if(aguinaldo > 600){
-        aguinaldo-=600;
-        console.log(aguinaldo);
-        agunialdo = parseFloat(aguinaldo) + (newR);
-        aguinaldo = aguinaldo.toFixed(2);
-    }else{
-        agunialdo = parseFloat(aguinaldo) + (newR);
-        aguinaldo = aguinaldo.toFixed(2);
+    var realAguinaldo;
+    if(aguinaldoOpcion > 600){
+        realAguinaldo= aguinaldoOpcion - 600;
     }
-    var total = ((parseFloat(rentaImponible)*11) + parseFloat(newR));
+    //alert(realAguinaldo + " " + aguinaldoOpcion + " "+ newR)
+    //se suma todo el desmadre
+    var salarioAguinaldoVacacionCalculada = parseFloat(newR) + parseFloat(realAguinaldo);
+    alert(salarioAguinaldoVacacionCalculada);
+    var total = ((parseFloat(rentaImponible)*11) + parseFloat(salarioAguinaldoVacacionCalculada));
     // total = total.toFixed(2);
-    var diciembre = document.getElementById("diciembre").innerHTML = `$ ${newR}`;
+    var diciembre = document.getElementById("diciembre").innerHTML = `$ ${salarioAguinaldoVacacionCalculada.toFixed(2)}`;
     var total = document.getElementById("total").innerHTML = `$ ${total}`;
 
     
@@ -109,7 +118,7 @@ function calculos() {
     $(".yaMerito").html(parseFloat(salBase)-fullCrackNoFake.toFixed(2));
     //Salario liquido
     if(rentaImponible >= 0.01 && rentaImponible < 472.01){
-        var nombreVariable= document.getElementById("RentaCalculado").innerHTML = `$ ${rentaC}`;
+        var nombreVariable= document.getElementById("salarioLiquido").innerHTML = `$ ${rentaImponible}`;
         //$("#salarioLiquido").html("$"+ (parseFloat(rentaImponible)-fullCrackNoFake.toFixed(2)).toFixed(2));
     }else {
         $("#salarioLiquido").html("$"+ (parseFloat(salBase)-fullCrackNoFake.toFixed(2)).toFixed(2));
