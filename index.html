@@ -150,7 +150,7 @@
       <br>
       <div class="grupo__formulario__btn-submit">
         <button type="submit" class="formulario__btn" value="calcular"
-          onclick="renta(); Remuneracion(); Retencion(); calculos(); setTablePDF()">Enviar</button>
+          onclick="renta(); Remuneracion(); calculos(); setTablePDF()">Enviar</button>
       </div>
     </form>
 
@@ -347,7 +347,7 @@
         </tr>
         <tr class="badge-dark" style="color: white; font-weight: bold;">
           <td colspan="2">Total de todos los meses</td>
-          <td colspan="2" id=añoRT>$ 0</td>
+          <td colspan="2" id="totalRT">$ 0</td>
         </tr>
        </tbody>
       </table>
@@ -544,10 +544,7 @@
 </div>
 <!--######~~~~~~~~~~~~~~~~~~~~~~~~########################################~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-  <script src="Model/JS/RemuneracionRetencion.js"></script>
-  <script src="Model/JS/Retenciones.js"></script>
-
-  
+  <script src="Model/JS/RemuneracionRetencion.js"></script>   
   <script src="Model/JS/generateTableForPDF.js"></script>
   <script src="Model/JS/lib/numberTotext.js"></script>
   <script src="Controller/JS/Formulario.js"></script>
