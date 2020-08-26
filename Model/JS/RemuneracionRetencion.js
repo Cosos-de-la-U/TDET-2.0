@@ -4,6 +4,7 @@ var afpCalc;
 var isssCalc;
 var aguinaldo;
 var calculoDiciembre;
+var totalRemuneracion;
 function renta() {
     var salarioPersona = Number(document.getElementById("salario").value);
     salBase = salarioPersona;
@@ -58,7 +59,7 @@ function Remuneracion() {
     var salarioBaseline = document.getElementById("salario").value;
     var vacaciones = (((salarioBaseline/30) * 15) * 0.3);
     console.log("vacaciones : " + vacaciones );
-    var salarioConVacacion  = salarioBaseline + vacaciones;
+    var salarioConVacacion  = parseFloat(salarioBaseline) + parseFloat(vacaciones);
     //vacaciones = rentaImponible + vacaciones;
     var afpC = salarioConVacacion*0.0725;
     console.log("afk S : " + vacaciones );
@@ -78,17 +79,12 @@ function Remuneracion() {
     //alert(realAguinaldo + " " + aguinaldoOpcion + " "+ newR)
     //se suma todo el desmadre
     var salarioAguinaldoVacacionCalculada = parseFloat(newR) + parseFloat(realAguinaldo);
-    alert(salarioAguinaldoVacacionCalculada);
     var total = ((parseFloat(rentaImponible)*11) + parseFloat(salarioAguinaldoVacacionCalculada));
     // total = total.toFixed(2);
+    totalRemuneracion = parseFloat(total);
     var diciembre = document.getElementById("diciembre").innerHTML = `$ ${salarioAguinaldoVacacionCalculada.toFixed(2)}`;
     var total = document.getElementById("total").innerHTML = `$ ${total}`;
-
     
-}
-
-function Retencion() {
-   
 }
 
 function calculos() {
@@ -126,6 +122,9 @@ function calculos() {
     $(".ntl").html(NumeroALetras(parseFloat(salBase)-fullCrackNoFake.toFixed(2)));
     // var descuento = document.getElementById("descuento").innerHTML =`$ ${descuento}`;
     // var pago = document.getElementById("pago").innerHTML =`$ ${pago}`;
+
+
+    //RETENCION
     $('#eneroRT').html(`$ ${ISR}`);
     $('#febreroRT').html(`$ ${ISR}`);
     $('#marzoRT').html(`$ ${ISR}`);
@@ -137,43 +136,26 @@ function calculos() {
     $('#setpiembreRT').html(`$ ${ISR}`);
     $('#octubreRT').html(`$ ${ISR}`);
     $('#noviembreRT').html(`$ ${ISR}`);
-    //wea
-    var years = document.getElementById("years");
-    var opcion = years.options[years.selectedIndex].innerText;
-    aguinaldo = (opcion == "1 año a 3 años") ? (ISR/30)*15 : (opcion == "3 años a 10 años") ? (ISR/30)*19 : (ISR/30)*21;
-    var dias;
-    if(aguinaldo > 600){
-        aguinaldo-=600;
-        console.log(aguinaldo);
-        agunialdo = parseFloat(aguinaldo) + (ISR);
-        aguinaldo = aguinaldo.toFixed(2);
+
+    var IsrEneroNoviembre = parseFloat(ISR * 11);
+    var recalculoDeRemuneracion;
+    //alert("TR " + totalRemuneracion);
+    if (totalRemuneracion >= 0.001 && 5664 >= totalRemuneracion ){
+        recalculoDeRemuneracion = 0.00;
+    }else if(totalRemuneracion >= 5664.01 && 10742.86 >= totalRemuneracion){
+        recalculoDeRemuneracion = ((parseFloat(totalRemuneracion) - parseFloat(5664)) * 0.1) + parseFloat(212.12);
+    }else if(totalRemuneracion >= 10742.87 && 24457.14 >= totalRemuneracion){
+        recalculoDeRemuneracion = ((parseFloat(totalRemuneracion) - parseFloat(10742.86))* 0.2) + parseFloat(720);
+    }else if(totalRemuneracion >= 24457.15){
+        recalculoDeRemuneracion = ((parseFloat(totalRemuneracion) - parseFloat(24457.14))*0.3) + parseFloat(3462.86) ;
     }else{
-        agunialdo = parseFloat(aguinaldo) + (ISR);
-        aguinaldo = aguinaldo.toFixed(2);
+        recalculoDeRemuneracion = 0.00;
     }
+    //alert("recalculo " + recalculoDeRemuneracion);
 
-    var salarioTotal = (parseFloat(salBase) + parseFloat(aguinaldo));
-    if(salarioTotal >= 0.01 && salarioTotal < 472.01){
-        calculoDiciembre = 0.00;
-    }else if(salarioTotal >= 472.01 && salarioTotal < 895.25){
-        calculoDiciembre = ((salarioTotal - 472.01)*0.10) + 17.67;
-    }else if(salarioTotal >= 895.25 && salarioTotal < 2038.11){
-        calculoDiciembre = ((salarioTotal - 895.25)*0.20) + 60.00;
-    }else if(salarioTotal > 2038.11){
-        calculoDiciembre = ((salarioTotal - 2038.11)*0.30) + 288.57;
-    }else {
-        calculoDiciembre = 0.0;
-    }
-  //alert(aguinaldo + " " + salBase + " " + calculoDiciembre);
-
-    ISR = parseFloat(ISR).toFixed(2);
-    var totalRT = ((parseFloat(ISR)*11) + parseFloat(calculoDiciembre));
-    totalRT = totalRT.toFixed(2);   
-    calculoDiciembre = calculoDiciembre.toFixed(2)
-    $('#diciembreRT').html(`$ ${calculoDiciembre}`);
-    $('#añoRT').html(`$ ${totalRT}`);
-    $('#totalRT').html(`$ ${totalRT}`);
-    $('#aguinaldoBoleta').html(`$ ${aguinaldo}`);
-    console.log(aguinaldo);
+    diferenciaRetencion = parseFloat(recalculoDeRemuneracion) - parseFloat(IsrEneroNoviembre);
+    var totalRetencionRT = parseFloat(diferenciaRetencion) + parseFloat(IsrEneroNoviembre);
+    $('#diciembreRT').html(`$ ${diferenciaRetencion.toFixed(2)}`);    
+    $('#totalRT').html(`$ ${totalRetencionRT.toFixed(2)}`);
 }
 
