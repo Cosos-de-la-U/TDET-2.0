@@ -149,12 +149,12 @@ function calculos() {
     }else {
         calculoDiciembre = 0.0;
     }
-//    alert(salarioTotal + " " + salBase);
+  //alert(aguinaldo + " " + salBase + " " + calculoDiciembre);
 
     ISR = parseFloat(ISR).toFixed(2);
     var totalRT = ((parseFloat(ISR)*11) + parseFloat(calculoDiciembre));
     totalRT = totalRT.toFixed(2);   
-    calculoDiciembre = calculoDiciembretoFixed(2)
+    calculoDiciembre = calculoDiciembre.toFixed(2)
     $('#diciembreRT').html(`$ ${calculoDiciembre}`);
     $('#añoRT').html(`$ ${totalRT}`);
     console.log(aguinaldo);
