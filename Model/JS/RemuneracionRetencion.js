@@ -89,11 +89,11 @@ function calculos() {
     var ISSSTotal = document.getElementById("ISSSTotal").innerHTML =`$ ${isssCalc}`;
     if(salBase >= 0.01 && salBase < 472.01){
         ISR = 0.00;
-    }else if(salBase >= 472.01 && salBase < 895.25){
-        ISR = ((salBase - 472.01)*0.10) + 17.67;
-    }else if(salBase >= 895.25 && salBase < 2038.11){
-        ISR = ((salBase - 895.25)*0.20) + 60.00;
-    }else if(salBase> 2038.11){
+    }else if(rentaImponible >= 472.01 && rentaImponible < 895.25){
+        ISR = ((rentaImponible - 472.01)*0.10) + 17.67;
+    }else if(rentaImponible >= 895.25 && rentaImponible < 2038.11){
+        ISR = ((rentaImponible - 895.25)*0.20) + 60.00;
+    }else if(rentaImponible > 2038.11){
         ISR = ((rentaImponible - 2038.11)*0.30) + 288.57;
     }
     ISR = ISR.toFixed(2);
