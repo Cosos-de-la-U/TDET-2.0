@@ -157,6 +157,8 @@ function calculos() {
     calculoDiciembre = calculoDiciembre.toFixed(2)
     $('#diciembreRT').html(`$ ${calculoDiciembre}`);
     $('#añoRT').html(`$ ${totalRT}`);
+    $('#totalRT').html(`$ ${totalRT}`);
+    $('#aguinaldoBoleta').html(`$ ${aguinaldo}`);
     console.log(aguinaldo);
 }
 
