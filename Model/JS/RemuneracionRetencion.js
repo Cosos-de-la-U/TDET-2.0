@@ -87,7 +87,7 @@ function calculos() {
     var rentaimponible = document.getElementById("RentaImponible").innerHTML =`$ ${rentaImponible}`;
     var AFPTotal = document.getElementById("AFPTotal").innerHTML =`$ ${afpCalc}`;
     var ISSSTotal = document.getElementById("ISSSTotal").innerHTML =`$ ${isssCalc}`;
-    if(salBase >= 0.01 && salBase < 472.01){
+    if(rentaImponible >= 0.01 && rentaImponible < 472.01){
         ISR = 0.00;
     }else if(rentaImponible >= 472.01 && rentaImponible < 895.25){
         ISR = ((rentaImponible - 472.01)*0.10) + 17.67;
@@ -107,7 +107,12 @@ function calculos() {
     var fullCrackNoFake = parseFloat(afpCalc) + parseFloat(isssCalc) + parseFloat(ISR);
     $(".totalFullNoFake").html(fullCrackNoFake.toFixed(2));
     $(".yaMerito").html(parseFloat(salBase)-fullCrackNoFake.toFixed(2));
-    $("#salarioLiquido").html("$"+ (parseFloat(salBase)-fullCrackNoFake.toFixed(2)).toFixed(2));
+    //Salario liquido
+    if(rentaImponible >= 0.01 && rentaImponible < 472.01){
+        $("#salarioLiquido").html("$"+ (parseFloat(ISR)-fullCrackNoFake.toFixed(2)).toFixed(2));
+    }else {
+        $("#salarioLiquido").html("$"+ (parseFloat(salBase)-fullCrackNoFake.toFixed(2)).toFixed(2));
+    }
     $(".ntl").html(NumeroALetras(parseFloat(salBase)-fullCrackNoFake.toFixed(2)));
     // var descuento = document.getElementById("descuento").innerHTML =`$ ${descuento}`;
     // var pago = document.getElementById("pago").innerHTML =`$ ${pago}`;
