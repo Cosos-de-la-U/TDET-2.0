@@ -111,7 +111,6 @@ function calculos() {
     $(".ntl").html(NumeroALetras(parseFloat(salBase)-fullCrackNoFake.toFixed(2)));
     // var descuento = document.getElementById("descuento").innerHTML =`$ ${descuento}`;
     // var pago = document.getElementById("pago").innerHTML =`$ ${pago}`;
-    $('#salarioLiquido').html(`$ ${SalLiquido}`);
     $('#eneroRT').html(`$ ${ISR}`);
     $('#febreroRT').html(`$ ${ISR}`);
     $('#marzoRT').html(`$ ${ISR}`);
@@ -123,10 +122,22 @@ function calculos() {
     $('#setpiembreRT').html(`$ ${ISR}`);
     $('#octubreRT').html(`$ ${ISR}`);
     $('#noviembreRT').html(`$ ${ISR}`);
-    $('#diciembreRT').html(`$ ${ISR}`);
     //wea
+    var years = document.getElementById("years");
+    var opcion = years.options[years.selectedIndex].innerText;
+    aguinaldo = (opcion == "1 año a 3 años") ? (ISR/30)*15 : (opcion == "3 años a 10 años") ? (ISR/30)*19 : (ISR/30)*21;
+    var dias;
+    if(aguinaldo > 600){
+        aguinaldo-=600;
+        console.log(aguinaldo);
+        agunialdo = parseFloat(aguinaldo) + (ISR);
+        aguinaldo = aguinaldo.toFixed(2);
+    }else{
+        agunialdo = parseFloat(aguinaldo) + (ISR);
+        aguinaldo = aguinaldo.toFixed(2);
+    }
 
-    var salarioTotal = (parseFloat(salarioLiquido) + parseFloat(aguinaldo));
+    var salarioTotal = (parseFloat(salBase) + parseFloat(aguinaldo));
     if(salarioTotal >= 0.01 && salarioTotal < 472.01){
         calculoDiciembre = 0.00;
     }else if(salarioTotal >= 472.01 && salarioTotal < 895.25){
@@ -135,12 +146,15 @@ function calculos() {
         calculoDiciembre = ((salarioTotal - 895.25)*0.20) + 60.00;
     }else if(salarioTotal > 2038.11){
         calculoDiciembre = ((salarioTotal - 2038.11)*0.30) + 288.57;
-    }else{
+    }else {
         calculoDiciembre = 0.0;
     }
+//    alert(salarioTotal + " " + salBase);
+
     ISR = parseFloat(ISR).toFixed(2);
     var totalRT = ((parseFloat(ISR)*11) + parseFloat(calculoDiciembre));
     totalRT = totalRT.toFixed(2);   
+    calculoDiciembre = calculoDiciembre.toFixed(2)
     $('#diciembreRT').html(`$ ${calculoDiciembre}`);
     $('#añoRT').html(`$ ${totalRT}`);
     console.log(aguinaldo);
