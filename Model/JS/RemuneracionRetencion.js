@@ -109,7 +109,7 @@ function calculos() {
     $(".yaMerito").html(parseFloat(salBase)-fullCrackNoFake.toFixed(2));
     //Salario liquido
     if(rentaImponible >= 0.01 && rentaImponible < 472.01){
-        $("#salarioLiquido").html("$"+ (parseFloat(ISR)-fullCrackNoFake.toFixed(2)).toFixed(2));
+        $("#salarioLiquido").html("$"+ (parseFloat(rentaImponible)-fullCrackNoFake.toFixed(2)).toFixed(2));
     }else {
         $("#salarioLiquido").html("$"+ (parseFloat(salBase)-fullCrackNoFake.toFixed(2)).toFixed(2));
     }
