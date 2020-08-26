@@ -75,6 +75,8 @@ function Remuneracion() {
     var realAguinaldo;
     if(aguinaldoOpcion > 600){
         realAguinaldo= aguinaldoOpcion - 600;
+    }else{
+        realAguinaldo = aguinaldoOpcion;
     }
     //alert(realAguinaldo + " " + aguinaldoOpcion + " "+ newR)
     //se suma todo el desmadre
