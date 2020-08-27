@@ -86,7 +86,7 @@ function Remuneracion() {
     totalRemuneracion = parseFloat(total);
     var diciembre = document.getElementById("diciembre").innerHTML = `$ ${salarioAguinaldoVacacionCalculada.toFixed(2)}`;
     var total = document.getElementById("total").innerHTML = `$ ${total}`;
-    
+    $('aguinaldoBoleta').html(realAguinaldo);
 }
 
 function calculos() {
@@ -114,7 +114,7 @@ function calculos() {
     var fullCrackNoFake = parseFloat(afpCalc) + parseFloat(isssCalc) + parseFloat(ISR);
     $(".totalFullNoFake").html(fullCrackNoFake.toFixed(2));
     $(".yaMerito").html(parseFloat(salBase)-fullCrackNoFake.toFixed(2));
-    $('aguinaldoBoleta').html(realAguinaldo);
+    
     $('vacacionesBoleta').html(vacaciones);
     //Salario liquido
     if(rentaImponible >= 0.01 && rentaImponible < 472.01){
