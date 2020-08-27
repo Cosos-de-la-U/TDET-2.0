@@ -114,6 +114,8 @@ function calculos() {
     var fullCrackNoFake = parseFloat(afpCalc) + parseFloat(isssCalc) + parseFloat(ISR);
     $(".totalFullNoFake").html(fullCrackNoFake.toFixed(2));
     $(".yaMerito").html(parseFloat(salBase)-fullCrackNoFake.toFixed(2));
+    $('aguinaldoBoleta').html(realAguinaldo);
+    $('vacacionesBoleta').html(vacaciones);
     //Salario liquido
     if(rentaImponible >= 0.01 && rentaImponible < 472.01){
         var nombreVariable= document.getElementById("salarioLiquido").innerHTML = `$ ${rentaImponible}`;
