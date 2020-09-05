@@ -86,8 +86,8 @@ function Remuneracion() {
     totalRemuneracion = parseFloat(total);
     var diciembre = document.getElementById("diciembre").innerHTML = `$ ${salarioAguinaldoVacacionCalculada.toFixed(2)}`;
     var total = document.getElementById("total").innerHTML = `$ ${total}`;
-    $('aguinaldoBoleta').html(realAguinaldo);
-    $('vacacionesBoleta').html(vacaciones);
+    $('#aguinaldoBoleta').html( parseFloat(realAguinaldo).toFixed() );
+    $('#vacacionesBoleta').html(vacaciones);
 }
 
 function calculos() {
@@ -160,6 +160,6 @@ function calculos() {
     diferenciaRetencion = parseFloat(recalculoDeRemuneracion) - parseFloat(IsrEneroNoviembre);
     var totalRetencionRT = parseFloat(diferenciaRetencion) + parseFloat(IsrEneroNoviembre);
     $('#diciembreRT').html(`$ ${diferenciaRetencion.toFixed(2)}`);    
-    $('#totalRT').html(`$ ${totalRetencionRT.toFixed(2)}`);
+    $('.totalRT').html(`$ ${totalRetencionRT.toFixed(2)}`);
 }
 
